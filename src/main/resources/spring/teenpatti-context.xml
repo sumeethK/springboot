@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+    <bean id="sameCardColorStrategy" class="com.sumeeth.springboot.teenpatti.winningstrategy.SameCardColorStrategy"/>
+    <bean id="sameCardNumberStrategy" class="com.sumeeth.springboot.teenpatti.winningstrategy.SameCardNumberStrategy"/>
+    <bean id="sameCardTypeStrategy" class="com.sumeeth.springboot.teenpatti.winningstrategy.SameCardTypeStrategy"/>
+    <bean id="winnerIdentifier" class="com.sumeeth.springboot.teenpatti.app.WinnerIdentifierImpl"/>
+    <bean id="distributor" class="com.sumeeth.springboot.teenpatti.distributor.DistributorImpl"/>
+    <bean id="stage" class="com.sumeeth.springboot.teenpatti.app.SetupStage"/>
+
+
+    <bean id="strategyImplementor" class="com.sumeeth.springboot.teenpatti.winningstrategy.StrategyImplementor">
+        <constructor-arg>
+            <list>
+                <ref bean="sameCardColorStrategy"/>
+                <ref bean="sameCardNumberStrategy"/>
+                <ref bean="sameCardTypeStrategy"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+</beans>

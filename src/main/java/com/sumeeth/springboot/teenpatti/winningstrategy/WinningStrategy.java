@@ -5,7 +5,7 @@ import com.sumeeth.springboot.teenpatti.Entity.Winner;
 
 import java.util.List;
 
-public interface WinnigStrategy {
+public interface WinningStrategy {
 
-    Winner findWinner(List<Player> assignedPlayerList);
+    Winner execute(List<Player> assignedPlayers);
 }

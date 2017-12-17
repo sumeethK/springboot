@@ -9,7 +9,12 @@ import java.util.Random;
 public class DistributorImpl implements Distributor {
     @Override
     public List<Player> distribute(List<Player> playerList, List<Card> cardList) {
-        playerList.stream().forEach(player -> assignCards(player, cardList));
+        if (playerList.size() > 17) {
+            throw new RuntimeException("No. of players can't be more than 17");
+        }
+        playerList.forEach(player -> assignCards(player, cardList));
+        System.out.println("Card left after distribution :" + cardList.size());
+        System.out.println("Room for more  :" + cardList.size() / 3);
         return playerList;
     }
 

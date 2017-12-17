@@ -20,7 +20,12 @@ public class Winner {
     }
 
     public enum WIN_TYPE{
-        SAME_CARD_NO,SAME_CARD_HIGH_WEIGHTAGE,SAME_COLOR, SAME_COLOR_HIGH_WEIGHTAGE
+        SAME_CARD_NO,
+        SAME_CARD_HIGHER_WEIGHTAGE,
+        SAME_CARD_TYPE,
+        SAME_CARD_TYPE_HIGHER_WEIGHTAGE,
+        SAME_COLOR,
+        SAME_COLOR_HIGHER_WEIGHTAGE
     }
 
     @Override
