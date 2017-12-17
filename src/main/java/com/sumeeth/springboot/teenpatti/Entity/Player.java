@@ -26,7 +26,7 @@ public class Player {
         cardCount = 0;
     }
 
-    public void incrementCard(){
+    public void incrementCardCount() {
         this.cardCount++;
     }
 

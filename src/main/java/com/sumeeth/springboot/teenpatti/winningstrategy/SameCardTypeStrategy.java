@@ -10,17 +10,17 @@ import java.util.stream.Collectors;
 
 public class SameCardTypeStrategy extends AbstractWinningStrategy implements WinningStrategy {
     @Override
-    public Winner execute(List<Player> assignedPlayers) {
+    public Optional<Winner> execute(List<Player> assignedPlayers) {
         List<Player> elligibleSameCardTypeWinners = assignedPlayers.stream()
                 .filter(p -> ifPlayerHasSameCardType(p.getCardList()))
                 .collect(Collectors.toList());
         if (null != elligibleSameCardTypeWinners && elligibleSameCardTypeWinners.size() == 1) {
-            return new Winner(Optional.ofNullable(elligibleSameCardTypeWinners.get(0)), Winner.WIN_TYPE.SAME_CARD_TYPE);
+            return Optional.of(new Winner(Optional.ofNullable(elligibleSameCardTypeWinners.get(0)), Winner.WIN_TYPE.SAME_CARD_TYPE));
         } else if (null != elligibleSameCardTypeWinners && elligibleSameCardTypeWinners.size() > 1) {
-            return new Winner(elligibleSameCardTypeWinners.stream()
-                    .max(highestSameColor), Winner.WIN_TYPE.SAME_CARD_TYPE_HIGHER_WEIGHTAGE);
+            return Optional.of(new Winner(elligibleSameCardTypeWinners.stream()
+                    .max(highestSameColor), Winner.WIN_TYPE.SAME_CARD_TYPE_HIGHER_WEIGHTAGE));
         }
-        return null;
+        return Optional.empty();
     }
 
     private boolean ifPlayerHasSameCardType(List<Card> cardList) {

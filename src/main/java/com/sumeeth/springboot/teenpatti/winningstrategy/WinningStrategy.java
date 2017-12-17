@@ -4,8 +4,9 @@ import com.sumeeth.springboot.teenpatti.Entity.Player;
 import com.sumeeth.springboot.teenpatti.Entity.Winner;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface WinningStrategy {
 
-    Winner execute(List<Player> assignedPlayers);
+    Optional<Winner> execute(List<Player> assignedPlayers);
 }

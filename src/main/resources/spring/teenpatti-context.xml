@@ -17,8 +17,8 @@
     <bean id="strategyImplementor" class="com.sumeeth.springboot.teenpatti.winningstrategy.StrategyImplementor">
         <constructor-arg>
             <list>
-                <ref bean="sameCardColorStrategy"/>
                 <ref bean="sameCardNumberStrategy"/>
+                <ref bean="sameCardColorStrategy"/>
                 <ref bean="sameCardTypeStrategy"/>
             </list>
         </constructor-arg>

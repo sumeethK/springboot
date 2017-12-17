@@ -16,11 +16,13 @@ public class StrategyImplementor {
     }
 
     public Optional<Winner> implement(List<Player> assignedPlayers) {
-        return winningStrategies.stream().map(strategy -> strategy.execute(assignedPlayers)).findFirst();
-//        return winningStrategies.stream().filter(strategy -> ifWinnerFound(strategy,assignedPlayers)).findFirst();
+        for (WinningStrategy winningStrategy : winningStrategies) {
+            Optional<Winner> winnerTemp = winningStrategy.execute(assignedPlayers);
+            if (winnerTemp.isPresent()) {
+                return winnerTemp;
+            }
+        }
+        return Optional.empty();
     }
 
-//    private Boolean ifWinnerFound(WinningStrategy strategy, List<Player> assignedPlayers){
-//        return strategy.execute(assignedPlayers).isPresent();
-//    }
 }

@@ -27,7 +27,7 @@ public class DistributorImpl implements Distributor {
             player.getCardList().add(cardList.get(cardNo));
             cardList.remove(cardNo);
             cardSize--;
-            player.incrementCard();
+            player.incrementCardCount();
         }
 
     }
