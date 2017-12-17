@@ -1,4 +1,4 @@
-#####TeenPatti Application :+1:
+####TeenPatti Application :+1:
 
 1. Any player can have at most 3 random cards which will be distributed by the system.
 2. Currently system supports 17 concurrent players.
